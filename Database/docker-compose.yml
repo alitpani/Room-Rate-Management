@@ -1,0 +1,24 @@
+version: "3.3"
+services:
+  local_prism_postgres:
+    container_name: main_db
+    restart: "no"
+    image: postgres:16
+    command: -c 'max_connections=500'
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 512M
+        reservations:
+          cpus: "0.25"
+          memory: 128M
+    volumes:
+      - ./.data/psql_db:/var/lib/postgresql/data
+      - ./02_postgres_extension_setup.sh/:/02_postgres_extension_setup.sh
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "4900:5432"

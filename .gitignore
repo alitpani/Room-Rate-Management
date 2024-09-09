@@ -1,0 +1,22 @@
+# Ignore Python bytecode and cache
+__pycache__/
+*.py[cod]
+
+# Ignore environment variables file
+.env
+
+# Ignore .data directory
+*.data/
+
+# Ignore other common files and directories in Django
+*.sqlite3
+*.log
+*.pot
+*.pyc
+db.sqlite3
+*.so
+*.DS_Store
+
+# Ignore virtual environments
+room-management/
+env/
